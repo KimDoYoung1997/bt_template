@@ -89,7 +89,7 @@ class TopicDetected : public BT::StatefulActionNode //, public rclcpp::Node
     NodeStatus onRunning() override
     {
         // 메시지 큐에잇는 모든 메시지를 처리
-        rclcpp::spin_some(node_ptr_->get_node_base_interface());
+        //rclcpp::spin_some(node_ptr_->get_node_base_interface());
         if (detected == true)
         {
             detected = false;

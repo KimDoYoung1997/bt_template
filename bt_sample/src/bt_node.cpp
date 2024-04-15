@@ -59,9 +59,9 @@ public:
 
         // rclcpp::spin(shared_from_this());
         RCLCPP_INFO(this->get_logger(), "Before spinning node");
-        rclcpp::spin(shared_from_this());
-        RCLCPP_INFO(this->get_logger(), "After spinning node");
-        rclcpp::shutdown();
+        // rclcpp::spin(shared_from_this());
+        // RCLCPP_INFO(this->get_logger(), "After spinning node");
+        // rclcpp::shutdown();
     }
     void create_behavior_tree()
     {
@@ -124,6 +124,12 @@ int main(int argc, char **argv)
     auto node = std::make_shared<BTNode>();
     // node->init();
     node->execute();
+
+//  여기 바꾸기
+    rclcpp::spin(node);
+    //RCLCPP_INFO(this->get_logger(), "After spinning node");
     rclcpp::shutdown();
+
+    // rclcpp::shutdown();
     return 0;
 }
